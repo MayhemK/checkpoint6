@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 import { AppState } from '../AppState.js';
+import AccountForm from '@/components/AccountForm.vue';
 
 const account = computed(() => AppState.account)
 
@@ -9,9 +10,20 @@ const account = computed(() => AppState.account)
 <template>
   <div class="about text-center">
     <div v-if="account">
-      <h1>Welcome {{ account.name }}</h1>
-      <img class="rounded" :src="account.picture" alt="" />
-      <p>{{ account.email }}</p>
+      <section class="container">
+        <div class="row">
+          <div class="col-3">
+            <img :src="account.picture" alt="">
+            <p>{{ account.name }}</p>
+            <p>{{ account.email }}</p>
+            <p>{{ account.bio }}</p>
+
+          </div>
+          <div class="col-9">
+            <AccountForm />
+          </div>
+        </div>
+      </section>
     </div>
     <div v-else>
       <h1>Loading... <i class="mdi mdi-loading mdi-spin"></i></h1>
