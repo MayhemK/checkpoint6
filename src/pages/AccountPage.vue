@@ -5,10 +5,12 @@ import AccountForm from '@/components/AccountForm.vue';
 
 const account = computed(() => AppState.account)
 
+
+
 </script>
 
 <template>
-  <div class="about text-center">
+  <div class="about ">
     <div v-if="account">
       <section class="container">
         <div class="row">
@@ -22,7 +24,7 @@ const account = computed(() => AppState.account)
             <p>{{ account.name }}</p>
             <p>{{ account.email }}</p>
             <p>{{ account.bio }}</p>
-            <p>{{ account.graduated }}</p>
+            <p>Graduated? {{ account.graduated ? '✔️' : '❌' }}</p>
 
           </div>
           <div class="col-9">

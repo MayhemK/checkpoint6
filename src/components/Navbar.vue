@@ -78,5 +78,6 @@ a {
   font-family: "Jersey 15", sans-serif;
   font-weight: 400;
   font-style: normal;
+  font-size: 1.5rem;
 }
 </style>
