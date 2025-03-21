@@ -1,11 +1,10 @@
 <script setup>
-import Example from '@/components/Example.vue';
 
 
 </script>
 
 <template>
-  <Example />
+  <p>getting started</p>
 </template>
 
 <style scoped lang="scss"></style>

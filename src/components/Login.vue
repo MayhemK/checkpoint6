@@ -17,7 +17,7 @@ function logout() {
 
 <template>
   <span class="navbar-text">
-    <button class="btn selectable text-green" @click="login" v-if="!identity">
+    <button class="btn selectable txt-grn" @click="login" v-if="!identity">
       Login
     </button>
     <div v-else>
@@ -53,5 +53,9 @@ function logout() {
   border-radius: 100px;
   object-fit: cover;
   object-position: center;
+}
+
+.txt-grn {
+  color: #00fe4d;
 }
 </style>

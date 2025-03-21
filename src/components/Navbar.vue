@@ -17,11 +17,11 @@ watch(theme, () => {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-md bg-codeworks border-bottom border-vue">
+  <nav class="navbar navbar-expand-md bg-black border-bottom border-vue">
     <div class="container gap-2">
-      <RouterLink :to="{ name: 'Home' }" class="d-flex align-items-center text-light">
-        <img class="navbar-brand" alt="logo" src="/img/cw-logo.png" height="45" />
-        <b class="fs-5">Vue Starter</b>
+      <RouterLink :to="{ name: 'Home' }" class="d-flex align-items-center txt-grn">
+        <img class="navbar-brand" alt="logo" src="/favicon.jpg" height="45" />
+        <b class="fs-5">CodePad</b>
       </RouterLink>
       <!-- collapse button -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-links"
@@ -32,7 +32,7 @@ watch(theme, () => {
       <div class="collapse navbar-collapse " id="navbar-links">
         <ul class="navbar-nav">
           <li>
-            <RouterLink :to="{ name: 'About' }" class="btn text-green selectable">
+            <RouterLink :to="{ name: 'About' }" class="btn txt-grn selectable">
               About
             </RouterLink>
           </li>
@@ -64,5 +64,13 @@ a {
   border-bottom: 2px solid var(--bs-success);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+.bg-black {
+  background-color: black;
+}
+
+.txt-grn {
+  color: #00fe4d;
 }
 </style>
