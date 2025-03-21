@@ -5,8 +5,8 @@ import { AppState } from "@/AppState.js";
 class FeedService{
   async getAllPosts() {
     const res = await api.get('api/posts')
-// const posts = res.data.map(pojo => new posts(pojo)) 
-    logger.log(res)
+const posts = res.data.posts.map(pojo => new posts(pojo)) 
+    logger.log(res.data)
 }
 }
 
