@@ -2,7 +2,7 @@
 import { computed } from 'vue';
 import { AppState } from '../AppState.js';
 import AccountForm from '@/components/AccountForm.vue';
-// import AccountComp from '@/components/AccountComp.vue';
+import AccountComp from '@/components/AccountComp.vue';
 
 const account = computed(() => AppState.account)
 
@@ -21,12 +21,12 @@ const account = computed(() => AppState.account)
         </div>
         <div class="row">
           <div class="col-3">
-            <img :src="account.picture" alt="">
+            <!-- <img :src="account.picture" alt="">
             <p>{{ account.name }}</p>
             <p>{{ account.email }}</p>
             <p>{{ account.bio }}</p>
-            <p>Graduated? {{ account.graduated ? '✔️' : '❌' }}</p>
-            <!-- <AccountComp /> -->
+            <p>Graduated? {{ account.graduated ? '✔️' : '❌' }}</p> -->
+            <AccountComp />
           </div>
           <div class="col-9">
             <AccountForm />

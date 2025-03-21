@@ -1,6 +1,11 @@
 <script setup>
+import { AppState } from '@/AppState.js';
 import AccountComp from '@/components/AccountComp.vue';
 import Feed from '@/components/Feed.vue';
+import { computed } from 'vue';
+
+const account = computed(() => AppState.account)
+
 
 
 
@@ -10,7 +15,7 @@ import Feed from '@/components/Feed.vue';
   <section class="container">
     <div class="row">
       <div class="col-md-3">
-        <AccountComp />
+        <AccountComp v-if="account" :account="account" />
       </div>
       <div class="col-md-6">
         <Feed />
