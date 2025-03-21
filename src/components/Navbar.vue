@@ -17,7 +17,7 @@ watch(theme, () => {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-md bg-black border-bottom border-vue">
+  <nav class="navbar navbar-expand-md bg-black border-bottom border-vue jersey ">
     <div class="container gap-2">
       <RouterLink :to="{ name: 'Home' }" class="d-flex align-items-center txt-grn">
         <img class="navbar-brand" alt="logo" src="/favicon.jpg" height="45" />
@@ -32,9 +32,9 @@ watch(theme, () => {
       <div class="collapse navbar-collapse " id="navbar-links">
         <ul class="navbar-nav">
           <li>
-            <RouterLink :to="{ name: 'About' }" class="btn txt-grn selectable">
-              About
-            </RouterLink>
+            <!-- <RouterLink :to="{ name: 'About' }" class="btn txt-grn selectable">
+              About woerds
+            </RouterLink> -->
           </li>
         </ul>
         <!-- LOGIN COMPONENT HERE -->
@@ -72,5 +72,11 @@ a {
 
 .txt-grn {
   color: #00fe4d;
+}
+
+.jersey {
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 </style>
