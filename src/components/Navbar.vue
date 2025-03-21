@@ -5,9 +5,9 @@ import Login from './Login.vue';
 
 const theme = ref(loadState('theme') || 'light')
 
-function toggleTheme() {
-  theme.value = theme.value == 'light' ? 'dark' : 'light'
-}
+// function toggleTheme() {
+//   theme.value = theme.value == 'light' ? 'dark' : 'light'
+// }
 
 watch(theme, () => {
   document.documentElement.setAttribute('data-bs-theme', theme.value)
@@ -24,26 +24,18 @@ watch(theme, () => {
         <b class="fs-5">CodePad</b>
       </RouterLink>
       <!-- collapse button -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-links"
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-links"
         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="mdi mdi-menu text-light"></span>
-      </button>
+      </button> -->
       <!-- collapsing menu -->
       <div class="collapse navbar-collapse " id="navbar-links">
         <ul class="navbar-nav">
           <li>
-            <!-- <RouterLink :to="{ name: 'About' }" class="btn txt-grn selectable">
-              About woerds
-            </RouterLink> -->
           </li>
         </ul>
         <!-- LOGIN COMPONENT HERE -->
         <div class="ms-auto">
-          <button class="btn text-light" @click="toggleTheme"
-            :title="`Enable ${theme == 'light' ? 'dark' : 'light'} theme.`">
-            <i v-if="theme == 'dark'" class="mdi mdi-weather-sunny"></i>
-            <i v-if="theme == 'light'" class="mdi mdi-weather-night"></i>
-          </button>
         </div>
         <Login />
       </div>

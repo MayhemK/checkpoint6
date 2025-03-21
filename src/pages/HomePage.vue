@@ -1,4 +1,7 @@
 <script setup>
+import AccountComp from '@/components/AccountComp.vue';
+import Feed from '@/components/Feed.vue';
+
 
 
 </script>
@@ -7,10 +10,10 @@
   <section class="container">
     <div class="row">
       <div class="col-md-3">
-        <p>Info</p>
+        <AccountComp />
       </div>
       <div class="col-md-6">
-        <p>main feed</p>
+        <Feed />
       </div>
       <div class="col-md-3">
         <p>ad</p>
