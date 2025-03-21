@@ -12,11 +12,17 @@ const account = computed(() => AppState.account)
     <div v-if="account">
       <section class="container">
         <div class="row">
+          <div class="col-12">
+            <img :src="account.coverImg" alt="" class="bigger">
+          </div>
+        </div>
+        <div class="row">
           <div class="col-3">
             <img :src="account.picture" alt="">
             <p>{{ account.name }}</p>
             <p>{{ account.email }}</p>
             <p>{{ account.bio }}</p>
+            <p>{{ account.graduated }}</p>
 
           </div>
           <div class="col-9">
@@ -33,6 +39,6 @@ const account = computed(() => AppState.account)
 
 <style scoped lang="scss">
 img {
-  max-width: 100px;
+  max-width: 100%;
 }
 </style>
