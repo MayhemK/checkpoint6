@@ -23,6 +23,9 @@ const account = computed(() => AppState.account)
     </div>
     <div class="card-body">
       <p>{{ account.bio }}</p>
+      <p>{{ account.class }}</p>
+      <p>{{ account.github }}</p>
+      <p>{{ account.linkedin }}</p>
       <p>Graduated? {{ account.graduated ? '✔️' : '❌' }}</p>
     </div>
   </div>
