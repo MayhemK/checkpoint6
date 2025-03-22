@@ -15,7 +15,10 @@ defineProps({
     <div class="card-body">
       <div>{{ postProp.body }}</div>
       <hr>
-      <img :src="postProp.imgUrl" alt="">
+      <p>IMG GO HER</p>
+      <!-- <img :src="postProp.imgUrl" alt=""> -->
+      <hr>
+      <p>👍: {{ postProp.likeIds }}</p>
     </div>
   </div>
 
