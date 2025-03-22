@@ -23,7 +23,13 @@ async function getAllPosts() {
 
 
 <template>
-  <div>{{ posts }}</div>
+  <section class="container">
+    <div class="row">
+      <div class="col-12">
+        <div>{{ posts.creatorId }}</div>
+      </div>
+    </div>
+  </section>
 
 </template>
 
