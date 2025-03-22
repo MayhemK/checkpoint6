@@ -27,17 +27,17 @@ async function getAllPosts() {
 <template>
   <section class="container">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-2">
         <AccountComp v-if="account" :account="account" />
       </div>
-      <div class="col-md-6">
+      <div class="col-md-8">
         <div v-for="post in posts" :key="post.id" class="row">
           <div class="col-12">
             <Feed :postProp="post" />
           </div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <p>ad</p>
       </div>
     </div>
