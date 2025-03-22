@@ -1,7 +1,10 @@
 <script setup>
+import { AppState } from '@/AppState.js';
 import { feedService } from '@/services/FeedService.js';
 import { Pop } from '@/utils/Pop.js';
-import { onMounted } from 'vue';
+import { computed, onMounted } from 'vue';
+
+const posts = computed(() => AppState.posts)
 
 onMounted(() => {
   getAllPosts()
@@ -20,7 +23,7 @@ async function getAllPosts() {
 
 
 <template>
-  <div>HI</div>
+  <div>{{ posts }}</div>
 
 </template>
 
