@@ -4,7 +4,7 @@ import { Post } from '@/models/Post.js';
 import { computed } from 'vue';
 
 
-// const profile = computed(() => AppState.activeProfile)
+const profile = computed(() => AppState.activeProfile)
 defineProps({
   postProp: { type: Post, required: true }
 })
@@ -14,7 +14,9 @@ defineProps({
 
 <template>
   <div class="card txt-grn">
-    <div class="card-header fs-4">🖼️{{ postProp.creatorId }}</div>
+    <RouterLink :to="{ name: 'Profile', params: { profileId: postProp.creatorId } }">
+      <div class="card-header fs-4">🖼️ {{ postProp.creatorId }}</div>
+    </RouterLink>
     <div class="card-body">
       <div>{{ postProp.body }}</div>
       <hr>

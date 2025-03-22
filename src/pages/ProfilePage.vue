@@ -31,16 +31,16 @@ async function getProfileById() {
     <section class="container">
       <div class="row">
         <div class="col-12">
-          <img :src="profile.coverImg" alt="">
+          <!-- <img :src="profile.coverImg" alt=""> -->
         </div>
       </div>
       <div class="row">
         <div class="col-3">
 
-          <img :src="profile.picture" alt="">
+          <!-- <img :src="profile.picture" alt="">
           <p>{{ profile.name }}</p>
           <p>{{ profile.bio }}</p>
-          <p>Graduated? {{ account.graduated ? '✔️' : '❌' }}</p>
+          <p>Graduated? {{ account.graduated ? '✔️' : '❌' }}</p> -->
 
         </div>
         <div class="col-9">
