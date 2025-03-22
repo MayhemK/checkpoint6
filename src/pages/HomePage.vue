@@ -2,12 +2,24 @@
 import { AppState } from '@/AppState.js';
 import AccountComp from '@/components/AccountComp.vue';
 import Feed from '@/components/Feed.vue';
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
+import { feedService } from '@/services/FeedService.js';
+import { Pop } from '@/utils/Pop.js';
 
 const account = computed(() => AppState.account)
 const posts = computed(() => AppState.posts)
 
-
+onMounted(() => {
+  getAllPosts()
+})
+async function getAllPosts() {
+  try {
+    await feedService.getAllPosts()
+  }
+  catch (error) {
+    Pop.error(error);
+  }
+}
 
 
 </script>
@@ -19,7 +31,11 @@ const posts = computed(() => AppState.posts)
         <AccountComp v-if="account" :account="account" />
       </div>
       <div class="col-md-6">
-        <Feed />
+        <div v-for="post in posts" :key="post.id" class="row">
+          <div class="col-12">
+            <Feed :postProp="post" />
+          </div>
+        </div>
       </div>
       <div class="col-md-3">
         <p>ad</p>
