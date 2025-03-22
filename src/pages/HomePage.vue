@@ -5,6 +5,7 @@ import Feed from '@/components/Feed.vue';
 import { computed } from 'vue';
 
 const account = computed(() => AppState.account)
+const posts = computed(() => AppState.posts)
 
 
 
