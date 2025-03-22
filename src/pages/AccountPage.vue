@@ -16,7 +16,7 @@ const account = computed(() => AppState.account)
       <section class="container">
         <div class="row">
           <div class="col-12">
-            <img :src="account.coverImg" alt="" class="bigger">
+            <img :src="account.coverImg" alt="">
           </div>
         </div>
         <div class="row">
