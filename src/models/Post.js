@@ -1,4 +1,7 @@
 export class Post {
+  /**
+   * @param {{ body: any; imgUrl: any; creatorId: any; likeIds: any; id: any; }} data
+   */
   constructor(data){
     this.body = data.body
     this.imgUrl = data.imgUrl

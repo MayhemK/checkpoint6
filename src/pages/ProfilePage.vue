@@ -17,7 +17,6 @@ async function getProfileById() {
   try {
     const profileId = route.params.profileId
     await profileService.getProfileById(profileId)
-    logger.log('profile attempt', profileId)
   }
   catch (error) {
     Pop.error(error);
@@ -31,12 +30,15 @@ async function getProfileById() {
     <section class="container">
       <div class="row">
         <div class="col-12">
+          <p>Profile Cover Image Here</p>
           <!-- <img :src="profile.coverImg" alt=""> -->
         </div>
       </div>
       <div class="row">
         <div class="col-3">
-
+          <p>Profile Image</p>
+          <p>Profile Name</p>
+          <p>Profile Bio</p>
           <!-- <img :src="profile.picture" alt="">
           <p>{{ profile.name }}</p>
           <p>{{ profile.bio }}</p>
@@ -44,7 +46,7 @@ async function getProfileById() {
 
         </div>
         <div class="col-9">
-          AccountForm
+          <!-- AccountForm -->
         </div>
       </div>
     </section>
