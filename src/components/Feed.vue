@@ -15,7 +15,7 @@ const props = defineProps({
 
 onMounted(() => {
   getAllPosts()
-  getLikes()
+  // getLikes()
 })
 async function getAllPosts() {
   try {
@@ -25,14 +25,14 @@ async function getAllPosts() {
     Pop.error(error);
   }
 }
-async function getLikes() {
-  try {
-    await feedService.getLikes()
-  }
-  catch (error) {
-    Pop.error(error);
-  }
-}
+// async function getLikes() {
+//   try {
+//     await feedService.getLikes()
+//   }
+//   catch (error) {
+//     Pop.error(error);
+//   }
+
 // onMounted(async () => {
 //   await getUserData();
 // });
@@ -58,7 +58,7 @@ async function getLikes() {
       <!-- <img :src="postProp.imgUrl" alt=""> -->
       <hr>
       <!-- <div v-for="likes in likes" :key="likes.id"> likes</div> -->
-      <!-- <p>👍: {{ postProp.likes }}</p> -->
+      <p>👍: {{ postProp.likes }}</p>
     </div>
   </div>
 
