@@ -6,11 +6,11 @@ import { profileService } from '@/services/ProfileService.js';
 import { AppState } from '@/AppState.js';
 // import { logger } from '@/utils/Logger.js';
 import { Post } from '@/models/Post.js';
+import { logger } from '@/utils/Logger.js';
 
 // const account = computed(() => AppState.account)
 const profile = computed(() => AppState.activeProfile)
 const post = computed(() => AppState.userPosts)
-
 const route = useRoute()
 onMounted(() => {
   getProfileById()
@@ -37,6 +37,7 @@ async function getPostsById() {
     Pop.error(error);
   }
 }
+
 </script>
 
 
@@ -68,7 +69,9 @@ async function getPostsById() {
           </div>
           <div class="col-9">
             <div v-if="post">
-              {{ post }}
+              <div v-for="post in post" :key="post.id">
+                <p>{{ post.body }}</p>
+              </div>
             </div>
             <div v-else>
               <p>No Posts!</p>
