@@ -39,10 +39,10 @@ async function getProfileById() {
           <p>Profile Image</p>
           <p>Profile Name</p>
           <p>Profile Bio</p>
-          <!-- <img :src="profile.picture" alt="">
+          <img :src="profile.picture" alt="">
           <p>{{ profile.name }}</p>
           <p>{{ profile.bio }}</p>
-          <p>Graduated? {{ account.graduated ? '✔️' : '❌' }}</p> -->
+          <p>Graduated? {{ account.graduated ? '✔️' : '❌' }}</p>
 
         </div>
         <div class="col-9">

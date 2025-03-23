@@ -31,7 +31,7 @@ async function getUserData() {
 <template>
   <div class="card txt-grn">
     <RouterLink :to="{ name: 'Profile', params: { profileId: postProp.creatorId } }">
-      <div class="card-header fs-4">🖼️ {{ postProp.id }}</div>
+      <div class="card-header fs-4"><img :src="postProp.picture" alt="" class="prof-img"> {{ postProp.creator }}</div>
     </RouterLink>
     <div class="card-body">
       <div>{{ postProp.body }}</div>
@@ -51,6 +51,11 @@ async function getUserData() {
 img {
   height: auto;
   width: 100%;
+}
+
+.prof-img {
+  max-width: 64px;
+  aspect-ratio: 1;
 }
 
 .txt-grn {
