@@ -4,9 +4,7 @@ import { computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { profileService } from '@/services/ProfileService.js';
 import { AppState } from '@/AppState.js';
-// import { logger } from '@/utils/Logger.js';
 import { Post } from '@/models/Post.js';
-import { logger } from '@/utils/Logger.js';
 
 // const account = computed(() => AppState.account)
 const profile = computed(() => AppState.activeProfile)
@@ -53,7 +51,7 @@ async function getPostsById() {
         </div>
         <div class="row">
           <div class="col-3">
-            <div class="card">
+            <div class="card txt-grn">
               <div class="card-title">
                 <img :src="profile.picture" alt="">
                 <p class="text-center">{{ profile.name }}</p>
@@ -70,7 +68,18 @@ async function getPostsById() {
           <div class="col-9">
             <div v-if="post">
               <div v-for="post in post" :key="post.id">
-                <p>{{ post.body }}</p>
+                <div class="card txt-grn">
+                  <div class="card-header fs-4">
+                    <img :src="post.picture" alt="" class="prof-img">{{ post.creator }}
+                  </div>
+                  <div class="card-body">
+                    <div>{{ post.body }}</div>
+                    <hr>
+                    <img :src="post.imgUrl" alt="">
+                    <hr>
+                    <p>👍: {{ post.likes }}</p>
+                  </div>
+                </div>
               </div>
             </div>
             <div v-else>
@@ -93,5 +102,14 @@ async function getPostsById() {
 img {
   max-width: 100%;
   object-fit: cover;
+}
+
+.prof-img {
+  max-width: 64px;
+  aspect-ratio: 1;
+}
+
+.txt-grn {
+  color: #00fe4d;
 }
 </style>
