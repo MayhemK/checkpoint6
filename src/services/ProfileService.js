@@ -23,6 +23,8 @@ class ProfileService {
     const res = await api.get(`api/posts?creatorId=${creatorId}`)
     const posts = res.data.posts.map(pojo => new Post(pojo))
     AppState.userPosts = posts
+    logger.log('posts by user', posts)
+    return posts
   }
 }
 

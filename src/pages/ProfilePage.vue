@@ -5,7 +5,6 @@ import { useRoute } from 'vue-router';
 import { profileService } from '@/services/ProfileService.js';
 import { AppState } from '@/AppState.js';
 // import { logger } from '@/utils/Logger.js';
-import Feed from '@/components/Feed.vue';
 import { Post } from '@/models/Post.js';
 
 // const account = computed(() => AppState.account)
@@ -69,7 +68,7 @@ async function getPostsById() {
           </div>
           <div class="col-9">
             <div v-if="post">
-
+              {{ post }}
             </div>
             <div v-else>
               <p>No Posts!</p>
