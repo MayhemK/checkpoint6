@@ -1,6 +1,6 @@
 export class Post {
   /**
-   * @param {{ body: any; imgUrl: any; creatorId: any; likeIds: any; id: any; creator: any; picture: any }} data
+   * @param {{ body: any; imgUrl: any; creatorId: any; likeIds: any; id: any; creator: any; picture: any; likes: any }} data
    */
   constructor(data){
     this.body = data.body
@@ -10,5 +10,6 @@ export class Post {
     this.id = data.id
     this.creator = data.creator.name
     this.picture = data.creator.picture
+    this.likes = data.likes.picture
   }
 }

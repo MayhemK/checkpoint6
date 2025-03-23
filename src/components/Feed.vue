@@ -1,6 +1,7 @@
 <script setup>
 import { Account } from '@/models/Account.js';
 import { Post } from '@/models/Post.js';
+import { feedService } from '@/services/FeedService.js';
 import { profileService } from '@/services/ProfileService.js';
 import { Pop } from '@/utils/Pop.js';
 import { onMounted, ref } from 'vue';
@@ -10,21 +11,30 @@ const userProfile = ref(null);
 // const profile = computed(() => AppState.activeProfile)
 const props = defineProps({
   postProp: { type: Post, required: true },
-  userProp: { type: Account, required: true }
 })
 
-
-onMounted(async () => {
-  await getUserData();
-});
-async function getUserData() {
+onMounted(() => {
+  getAllPosts()
+})
+async function getAllPosts() {
   try {
-    userProfile.value = await profileService.getProfileById(props.postProp.creatorId);
+    await feedService.getAllPosts()
   }
   catch (error) {
     Pop.error(error);
   }
 }
+// onMounted(async () => {
+//   await getUserData();
+// });
+// async function getUserData() {
+//   try {
+//     userProfile.value = await profileService.getProfileById(props.postProp.creatorId);
+//   }
+//   catch (error) {
+//     Pop.error(error);
+//   }
+// }
 </script>
 
 
@@ -35,12 +45,10 @@ async function getUserData() {
     </RouterLink>
     <div class="card-body">
       <div>{{ postProp.body }}</div>
-      <div>I am getting angry</div>
       <hr>
-      <p>IMG GO HER</p>
-      <img :src="postProp.imgUrl" alt="">
+      <!-- <img :src="postProp.imgUrl" alt=""> -->
       <hr>
-      <p>👍: {{ postProp.likeIds }}</p>
+      <p>👍: {{ postProp.likes }}</p>
     </div>
   </div>
 
