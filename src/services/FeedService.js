@@ -11,11 +11,7 @@ const posts = res.data.posts.map(pojo => new Post(pojo))
 AppState.posts = posts
 // logger.log('creator', posts)
 }
-async getProfileById(profileId) {
-  const res = await api.get(`api/profiles/${profileId}`)
-  AppState.activeProfile = new Account(res.data)
-  logger.log('profile by id' , res.data)
-}
+
 }
 
 export const feedService = new FeedService()
