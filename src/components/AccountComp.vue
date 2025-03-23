@@ -22,6 +22,7 @@ const account = computed(() => AppState.account)
       <h4 class="text-center">{{ account.name }}</h4>
     </div>
     <div class="card-body">
+      <a :href="account.github">Github link</a>
       <p>{{ account.bio }}</p>
       <p>{{ account.class }}</p>
       <p>{{ account.github }}</p>

@@ -5,12 +5,16 @@ import { useRoute } from 'vue-router';
 import { profileService } from '@/services/ProfileService.js';
 import { AppState } from '@/AppState.js';
 import { logger } from '@/utils/Logger.js';
+import Feed from '@/components/Feed.vue';
+
 const account = computed(() => AppState.account)
 const profile = computed(() => AppState.activeProfile)
+const post = computed(() => AppState.userPosts)
 
 const route = useRoute()
 onMounted(() => {
   getProfileById()
+  getPostsById()
 })
 
 async function getProfileById() {
@@ -22,35 +26,57 @@ async function getProfileById() {
     Pop.error(error);
   }
 }
+async function getPostsById() {
+  try {
+    const profileId = route.params.profileId
+    await profileService.getPostsById(profileId)
+  }
+  catch (error) {
+    Pop.error(error);
+  }
+}
 </script>
 
 
 <template>
   <div class="about ">
-    <section class="container">
-      <div class="row">
-        <div class="col-12">
-          <p>Profile Cover Image Here</p>
-          <!-- <img :src="profile.coverImg" alt=""> -->
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-3">
-          <p>Profile Image</p>
-          <p>Profile Name</p>
-          <p>Profile Bio</p>
-          <img :src="profile.picture" alt="">
-          <p>{{ profile.name }}</p>
-          <p>{{ profile.bio }}</p>
-          <p>Graduated? {{ account.graduated ? '✔️' : '❌' }}</p>
+    <div v-if="profile">
 
+      <section class="container">
+        <div class="row">
+          <div class="col-12">
+            <img :src="profile.coverImg" alt="">
+          </div>
         </div>
-        <div class="col-9">
-          <!-- AccountForm -->
-        </div>
-      </div>
-    </section>
+        <div class="row">
+          <div class="col-3">
+            <div class="card">
+              <div class="card-title">
+                <img :src="profile.picture" alt="">
+                <p class="text-center">{{ profile.name }}</p>
+              </div>
+              <div class="card-body">
+                <p>{{ profile.bio }}</p>
+                <p>{{ profile.class }}</p>
+                <p :href="profile.github"><i class="mdi mdi-github"></i></p>
+                <p :href="profile.linkedin"><i class="mdi mdi-linkedin"></i></p>
+                <p>Graduated? {{ profile.graduated ? '✔️' : '❌' }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-9">
+            <div v-for="post in posts" :key="post.id">
+              <Feed :postProp="post" />
+            </div>
 
+
+          </div>
+        </div>
+      </section>
+    </div>
+    <div v-else>
+      <h1>Loading... <i class="mdi mdi-loading mdi-spin"></i></h1>
+    </div>
   </div>
 </template>
 
