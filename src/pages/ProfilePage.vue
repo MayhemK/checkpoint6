@@ -4,10 +4,11 @@ import { computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { profileService } from '@/services/ProfileService.js';
 import { AppState } from '@/AppState.js';
-import { logger } from '@/utils/Logger.js';
+// import { logger } from '@/utils/Logger.js';
 import Feed from '@/components/Feed.vue';
+import { Post } from '@/models/Post.js';
 
-const account = computed(() => AppState.account)
+// const account = computed(() => AppState.account)
 const profile = computed(() => AppState.activeProfile)
 const post = computed(() => AppState.userPosts)
 
@@ -16,7 +17,9 @@ onMounted(() => {
   getProfileById()
   getPostsById()
 })
-
+const props = defineProps({
+  postProp: { type: Post, required: true }
+})
 async function getProfileById() {
   try {
     const profileId = route.params.profileId
@@ -65,8 +68,11 @@ async function getPostsById() {
             </div>
           </div>
           <div class="col-9">
-            <div v-for="post in posts" :key="post.id">
-              <Feed :postProp="post" />
+            <div v-if="post">
+
+            </div>
+            <div v-else>
+              <p>No Posts!</p>
             </div>
 
 
