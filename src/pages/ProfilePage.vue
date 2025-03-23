@@ -59,8 +59,10 @@ async function getPostsById() {
               <div class="card-body">
                 <p>{{ profile.bio }}</p>
                 <p>{{ profile.class }}</p>
-                <p :href="profile.github"><i class="mdi mdi-github"></i></p>
-                <p :href="profile.linkedin"><i class="mdi mdi-linkedin"></i></p>
+                <a :href="profile.github"><i class="mdi mdi-github"></i></a>
+                <p>
+                  <a :href="profile.linkedin"><i class="mdi mdi-linkedin"></i></a>
+                </p>
                 <p>Graduated? {{ profile.graduated ? '✔️' : '❌' }}</p>
               </div>
             </div>
@@ -75,7 +77,7 @@ async function getPostsById() {
                   <div class="card-body">
                     <div>{{ post.body }}</div>
                     <hr>
-                    <img :src="post.imgUrl" alt="">
+                    <img :src="post.imgUrl" alt="Image for post">
                     <hr>
                     <p>👍: {{ post.likes }}</p>
                   </div>

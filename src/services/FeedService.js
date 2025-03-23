@@ -8,10 +8,17 @@ class FeedService{
   async getAllPosts() {
     const res = await api.get('api/posts')
 const posts = res.data.posts.map(pojo => new Post(pojo)) 
+const likes = res.data.posts[0].likes[0].name
 AppState.posts = posts
+logger.log('post info',likes)
 // logger.log('creator', posts)
 }
-
+async getLikes() {
+  const res = await api.get('api/posts')
+  const likes = res.data.posts.map(pojo => new Post(pojo))
+  logger.log('POST INFO', res.data)
+  AppState.likes = likes
+}
 }
 
 export const feedService = new FeedService()

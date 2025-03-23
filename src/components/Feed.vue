@@ -15,10 +15,19 @@ const props = defineProps({
 
 onMounted(() => {
   getAllPosts()
+  getLikes()
 })
 async function getAllPosts() {
   try {
     await feedService.getAllPosts()
+  }
+  catch (error) {
+    Pop.error(error);
+  }
+}
+async function getLikes() {
+  try {
+    await feedService.getLikes()
   }
   catch (error) {
     Pop.error(error);
@@ -48,7 +57,8 @@ async function getAllPosts() {
       <hr>
       <!-- <img :src="postProp.imgUrl" alt=""> -->
       <hr>
-      <p>👍: {{ postProp.likes }}</p>
+      <!-- <div v-for="likes in likes" :key="likes.id"> likes</div> -->
+      <!-- <p>👍: {{ postProp.likes }}</p> -->
     </div>
   </div>
 
