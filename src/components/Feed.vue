@@ -1,14 +1,27 @@
 <script setup>
-import { AppState } from '@/AppState.js';
 import { Post } from '@/models/Post.js';
-import { computed } from 'vue';
+import { profileService } from '@/services/ProfileService.js';
+import { Pop } from '@/utils/Pop.js';
+import { onMounted, ref } from 'vue';
 
 
-const profile = computed(() => AppState.activeProfile)
-defineProps({
+// const profile = computed(() => AppState.activeProfile)
+const props = defineProps({
   postProp: { type: Post, required: true }
 })
+const userProfile = ref(null);
 
+onMounted(async () => {
+  await getUserData();
+});
+async function getUserData() {
+  try {
+    userProfile.value = await profileService.getProfileById(props.postProp.creatorId);
+  }
+  catch (error) {
+    Pop.error(error);
+  }
+}
 </script>
 
 
@@ -21,7 +34,7 @@ defineProps({
       <div>{{ postProp.body }}</div>
       <hr>
       <p>IMG GO HER</p>
-      <!-- <img :src="postProp.imgUrl" alt=""> -->
+      <img :src="postProp.imgUrl" alt="">
       <hr>
       <p>👍: {{ postProp.likeIds }}</p>
     </div>

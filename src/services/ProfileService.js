@@ -8,8 +8,10 @@ class ProfileService {
   async getProfileById(profileId) {
     try {
       const res = await api.get(`api/profiles/${profileId}`)
-    AppState.activeProfile = new Account(res.data)
-    logger.log('profile by id' , res.data)
+    const profileData = new Account(res.data)
+    AppState.activeProfile = profileData
+    logger.log('profile by id' , profileData)
+    return profileData
     }
     catch (error){
       Pop.error(error);
