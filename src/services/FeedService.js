@@ -5,6 +5,10 @@ import { Post } from "@/models/Post.js";
 import { Account } from "@/models/Account.js";
 
 class FeedService{
+  async likePost(postId) {
+    const res = await api.post(`api/posts/${postId}/like`)
+    await this.getAllPosts()
+  }
   async deletePost(postId) {
     const res = await api.delete(`api/posts/${postId}`)
     const posts = AppState.posts

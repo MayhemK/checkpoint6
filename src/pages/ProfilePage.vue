@@ -5,6 +5,7 @@ import { useRoute } from 'vue-router';
 import { profileService } from '@/services/ProfileService.js';
 import { AppState } from '@/AppState.js';
 import { Post } from '@/models/Post.js';
+import { feedService } from '@/services/FeedService.js';
 
 // const account = computed(() => AppState.account)
 const profile = computed(() => AppState.activeProfile)
@@ -30,6 +31,14 @@ async function getPostsById() {
   try {
     const profileId = route.params.profileId
     await profileService.getPostsById(profileId)
+  }
+  catch (error) {
+    Pop.error(error);
+  }
+}
+async function likePost(postId) {
+  try {
+    await profileService.likePost(postId)
   }
   catch (error) {
     Pop.error(error);
@@ -78,6 +87,7 @@ async function getPostsById() {
                   <hr>
                   <img :src="post.imgUrl" alt="Image for post">
                   <hr>
+                  <div @click="likePost(post.id)" type="button">👍</div>
                   <div class="text-decoration-underline">
                     Likes:
                     <div v-for="like in post.likes" :key="like.id" class="fs-6">

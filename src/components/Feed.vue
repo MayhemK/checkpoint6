@@ -34,6 +34,14 @@ async function deletePost(postId) {
     Pop.error(error);
   }
 }
+async function likePost(postId) {
+  try {
+    await feedService.likePost(postId)
+  }
+  catch (error) {
+    Pop.error(error);
+  }
+}
 
 </script>
 
@@ -50,7 +58,7 @@ async function deletePost(postId) {
     <div class="card-body fs-3 mt-0">
       <div>{{ postProp.body }}</div>
       <hr>
-      <div>👍</div>
+      <div @click="likePost(postProp.id)" type="button">👍</div>
       <div class="text-decoration-underline">
         <div v-for="like in postProp.likes" :key="like.id" class="fs-6">
           <span>{{ like.name }}</span>
