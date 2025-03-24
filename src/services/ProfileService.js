@@ -4,12 +4,10 @@ import { AppState } from "@/AppState.js"
 import { Account } from "@/models/Account.js"
 import { Pop } from "@/utils/Pop.js"
 import { Post } from "@/models/Post.js"
-import { feedService } from "./FeedService.js"
 
 class ProfileService {
   async likePost(postId) {
     const res = await api.post(`api/posts/${postId}/like`)
-    await this.getPostsById()
   }
   async getProfileById(profileId) {
     AppState.activeProfile = null
@@ -29,6 +27,7 @@ class ProfileService {
     AppState.userPosts = posts
     return posts
   }
+  
 }
 
 export const profileService = new ProfileService()
