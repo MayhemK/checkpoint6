@@ -6,6 +6,7 @@ import { computed, onMounted } from 'vue';
 import { feedService } from '@/services/FeedService.js';
 import { Pop } from '@/utils/Pop.js';
 import CreatePost from '@/components/CreatePost.vue';
+import BannerComp from '@/components/BannerComp.vue';
 
 const account = computed(() => AppState.account)
 const posts = computed(() => AppState.posts)
@@ -40,7 +41,7 @@ async function getAllPosts() {
         </div>
       </div>
       <div class="col-md-2">
-        <p>ad</p>
+        <BannerComp />
       </div>
     </div>
   </section>
