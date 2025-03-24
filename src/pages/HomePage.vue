@@ -52,6 +52,7 @@ async function getOlder() {
     <div class="row">
       <div class="col-md-2">
         <AccountComp v-if="account" :account="account" />
+        SearchBarHere
       </div>
       <div class="col-md-8">
         <CreatePost v-if="account" :account="account" />
