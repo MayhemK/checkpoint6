@@ -8,7 +8,6 @@ class BannerService{
     const res = await api.get('api/ads')
     const banners = res.data.map(pojo => new Banner(pojo))
     AppState.banner = banners
-    logger.log('banner', banners)
   }
 
 

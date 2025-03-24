@@ -20,18 +20,13 @@ watch(theme, () => {
   <nav class="navbar navbar-expand-md bg-black border-bottom border-vue jersey ">
     <div class="container gap-2">
       <RouterLink :to="{ name: 'Home' }" class="d-flex align-items-center txt-grn">
-        <img class="navbar-brand" alt="logo" src="/favicon.jpg" height="45" />
-        <b class="fs-5">CodePad</b>
+        <img class="navbar-brand" alt="logo" src="/favicon.jpg" height="65" />
+        <b class="fs-4">CodePad</b>
       </RouterLink>
-      <!-- collapse button -->
-      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-links"
-        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="mdi mdi-menu text-light"></span>
-      </button> -->
-      <!-- collapsing menu -->
       <div class="collapse navbar-collapse " id="navbar-links">
         <ul class="navbar-nav">
           <li>
+
           </li>
         </ul>
         <!-- LOGIN COMPONENT HERE -->

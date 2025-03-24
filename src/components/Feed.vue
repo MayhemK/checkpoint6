@@ -57,6 +57,7 @@ async function likePost(postId) {
     <div>{{ new Date(postProp.createdAt).toLocaleString() }}</div>
     <div class="card-body fs-3 mt-0">
       <div>{{ postProp.body }}</div>
+      <img :src="postProp.imgUrl" alt="">
       <hr>
       <div @click="likePost(postProp.id)" type="button">👍</div>
       <div class="text-decoration-underline">
