@@ -6,6 +6,8 @@ import { profileService } from '@/services/ProfileService.js';
 import { AppState } from '@/AppState.js';
 import { Post } from '@/models/Post.js';
 import { feedService } from '@/services/FeedService.js';
+import BannerComp from '@/components/BannerComp.vue';
+
 
 // const account = computed(() => AppState.account)
 const profile = computed(() => AppState.activeProfile)
@@ -71,6 +73,7 @@ async function likePost(postId) {
               <p>Graduated? {{ profile.graduated ? '✔️' : '❌' }}</p>
             </div>
           </div>
+          <BannerComp />
         </div>
         <div class="col-9">
           <div v-if="post">
@@ -102,6 +105,7 @@ async function likePost(postId) {
             <p>No Posts!</p>
           </div>
         </div>
+
       </div>
     </section>
   </div>

@@ -3,6 +3,7 @@ import { computed } from 'vue';
 import { AppState } from '../AppState.js';
 import AccountForm from '@/components/AccountForm.vue';
 import AccountComp from '@/components/AccountComp.vue';
+import BannerComp from '@/components/BannerComp.vue';
 
 const account = computed(() => AppState.account)
 
@@ -25,6 +26,9 @@ const account = computed(() => AppState.account)
           </div>
           <div class="col-5">
             <AccountForm />
+          </div>
+          <div class="col-3">
+            <BannerComp />
           </div>
         </div>
       </section>
