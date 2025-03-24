@@ -6,16 +6,12 @@ import { profileService } from '@/services/ProfileService.js';
 import { Pop } from '@/utils/Pop.js';
 import { onMounted, ref } from 'vue';
 
-// const userProfile = ref(null);
-
-// const profile = computed(() => AppState.activeProfile)
 const props = defineProps({
   postProp: { type: Post, required: true },
 })
 
 onMounted(() => {
   getAllPosts()
-  // getLikes()
 })
 async function getAllPosts() {
   try {
@@ -25,25 +21,7 @@ async function getAllPosts() {
     Pop.error(error);
   }
 }
-// async function getLikes() {
-//   try {
-//     await feedService.getLikes()
-//   }
-//   catch (error) {
-//     Pop.error(error);
-//   }
 
-// onMounted(async () => {
-//   await getUserData();
-// });
-// async function getUserData() {
-//   try {
-//     userProfile.value = await profileService.getProfileById(props.postProp.creatorId);
-//   }
-//   catch (error) {
-//     Pop.error(error);
-//   }
-// }
 </script>
 
 
@@ -57,14 +35,14 @@ async function getAllPosts() {
       <hr>
       <!-- <img :src="postProp.imgUrl" alt=""> -->
       <hr>
-      <!-- <div v-for="like in post.likes" :key="like.id">
-        <p>Like Name: {{ like.name }}</p> -->
-      <!-- </div> -->
-      <!-- <p>👍: {{ postProp.likeIds }}</p> -->
+      <div v-for="like in postProp.likes" :key="like.id" class="">
+        <span>{{ like.name }}</span>
+      </div>
     </div>
   </div>
 
 </template>
+
 
 
 <style lang="scss" scoped>
@@ -74,7 +52,7 @@ img {
 }
 
 .prof-img {
-  max-width: 64px;
+  max-width: 96px;
   aspect-ratio: 1;
 }
 

@@ -34,10 +34,6 @@ async function getAllPosts() {
         <div v-for="post in posts" :key="post.id" class="row">
           <div class="col-12">
             <Feed :postProp="post" />
-            <p>argh</p>
-            <div v-for="like in post.likes" :key="like.id">
-              <p>Like Name: {{ like.name }}</p>
-            </div>
           </div>
         </div>
       </div>
