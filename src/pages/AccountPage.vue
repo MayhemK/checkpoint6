@@ -20,10 +20,10 @@ const account = computed(() => AppState.account)
           </div>
         </div>
         <div class="row">
-          <div class="col-3">
+          <div class="col-4">
             <AccountComp />
           </div>
-          <div class="col-9">
+          <div class="col-5">
             <AccountForm />
           </div>
         </div>

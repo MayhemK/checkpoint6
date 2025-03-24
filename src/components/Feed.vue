@@ -4,7 +4,7 @@ import { Post } from '@/models/Post.js';
 import { feedService } from '@/services/FeedService.js';
 import { profileService } from '@/services/ProfileService.js';
 import { Pop } from '@/utils/Pop.js';
-import { onMounted, ref } from 'vue';
+import { onMounted } from 'vue';
 
 const props = defineProps({
   postProp: { type: Post, required: true },

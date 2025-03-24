@@ -10,12 +10,6 @@ const account = computed(() => AppState.account)
 
 
 <template>
-  <!-- <img :src="account.picture" alt="">
-  <p>{{ account.name }}</p>
-  <p>{{ account.email }}</p>
-  <p>{{ account.bio }}</p>
-  <p>Graduated? {{ account.graduated ? '✔️' : '❌' }}</p> -->
-
   <div class="card txt-grn">
     <div class="card-title">
       <img :src="account.picture" alt="">

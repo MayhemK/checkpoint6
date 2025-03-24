@@ -5,6 +5,7 @@ import Feed from '@/components/Feed.vue';
 import { computed, onMounted } from 'vue';
 import { feedService } from '@/services/FeedService.js';
 import { Pop } from '@/utils/Pop.js';
+import CreatePost from '@/components/CreatePost.vue';
 
 const account = computed(() => AppState.account)
 const posts = computed(() => AppState.posts)
@@ -31,6 +32,7 @@ async function getAllPosts() {
         <AccountComp v-if="account" :account="account" />
       </div>
       <div class="col-md-8">
+        <CreatePost v-if="account" :account="account" />
         <div v-for="post in posts" :key="post.id" class="row">
           <div class="col-12">
             <Feed :postProp="post" />

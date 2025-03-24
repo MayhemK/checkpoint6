@@ -29,7 +29,7 @@ async function updateAccount() {
 
 
 <template>
-  <div>
+  <div class="d-flex justify-content-between">
     <h3>Change Account details here!</h3>
     <form @submit.prevent="updateAccount()">
       <div>
@@ -69,7 +69,7 @@ async function updateAccount() {
         <input v-model="editableAccountData.graduated" type="checkbox" id="accountGraduated" name="graduated">
       </div>
       <div class="text-end">
-        <button class="btn btn-success" type="submit">submit</button>
+        <button class="btn btn-green" type="submit">submit</button>
       </div>
     </form>
   </div>
@@ -77,4 +77,9 @@ async function updateAccount() {
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.btn-green {
+  background-color: #00fe4d;
+  color: black;
+}
+</style>
