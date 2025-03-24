@@ -40,62 +40,65 @@ async function getPostsById() {
 
 
 <template>
-  <div class="about ">
-    <div v-if="profile">
-
-      <section class="container">
-        <div class="row">
-          <div class="col-12">
-            <img :src="profile.coverImg" alt="">
-          </div>
+  <div class="about " v-if="profile">
+    <section class="container">
+      <div class="row">
+        <div class="col-12">
+          <img :src="profile.coverImg" alt="">
         </div>
-        <div class="row">
-          <div class="col-3">
-            <div class="card txt-grn">
-              <div class="card-title">
-                <img :src="profile.picture" alt="">
-                <p class="text-center">{{ profile.name }}</p>
-              </div>
-              <div class="card-body">
-                <p>{{ profile.bio }}</p>
-                <p>{{ profile.class }}</p>
-                <a :href="profile.github"><i class="mdi mdi-github"></i></a>
-                <p>
-                  <a :href="profile.linkedin"><i class="mdi mdi-linkedin"></i></a>
-                </p>
-                <p>Graduated? {{ profile.graduated ? '✔️' : '❌' }}</p>
-              </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <div class="card txt-grn">
+            <div class="card-title">
+              <img :src="profile.picture" alt="">
+              <p class="text-center">{{ profile.name }}</p>
+            </div>
+            <div class="card-body">
+              <p>{{ profile.bio }}</p>
+              <p>{{ profile.class }}</p>
+              <a :href="profile.github"><i class="mdi mdi-github"></i></a>
+              <p>
+                <a :href="profile.linkedin"><i class="mdi mdi-linkedin"></i></a>
+              </p>
+              <p>Graduated? {{ profile.graduated ? '✔️' : '❌' }}</p>
             </div>
           </div>
-          <div class="col-9">
-            <div v-if="post">
-              <div v-for="post in post" :key="post.id">
-                <div class="card txt-grn">
-                  <div class="card-header fs-4">
-                    <img :src="post.picture" alt="" class="prof-img">{{ post.creator }}
-                  </div>
-                  <div class="card-body">
-                    <div>{{ post.body }}</div>
-                    <hr>
-                    <img :src="post.imgUrl" alt="Image for post">
-                    <hr>
-                    <p>👍: {{ post.likes }}</p>
+        </div>
+        <div class="col-9">
+          <div v-if="post">
+            <div v-for="post in post" :key="post.id">
+              <div class="card txt-grn">
+                <div class="card-header fs-5 align-items-end">
+                  <img :src="post.picture" alt="" class="prof-img d-flex justify-content-between">
+                  {{ post.creator }}
+                </div>
+                <div class="fs-6">{{ new Date(post.createdAt).toLocaleString() }}</div>
+
+                <div class="card-body fs-3 mt-0">
+                  <div>{{ post.body }}</div>
+                  <hr>
+                  <img :src="post.imgUrl" alt="Image for post">
+                  <hr>
+                  <div class="text-decoration-underline">
+                    Likes:
+                    <div v-for="like in post.likes" :key="like.id" class="fs-6">
+                      <span>{{ like.name }}</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div v-else>
-              <p>No Posts!</p>
-            </div>
-
-
+          </div>
+          <div v-else>
+            <p>No Posts!</p>
           </div>
         </div>
-      </section>
-    </div>
-    <div v-else>
-      <h1>Loading... <i class="mdi mdi-loading mdi-spin"></i></h1>
-    </div>
+      </div>
+    </section>
+  </div>
+  <div v-else>
+    <h1>Loading... <i class="mdi mdi-loading mdi-spin"></i></h1>
   </div>
 </template>
 

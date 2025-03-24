@@ -28,15 +28,20 @@ async function getAllPosts() {
 <template>
   <div class="card txt-grn">
     <RouterLink :to="{ name: 'Profile', params: { profileId: postProp.creatorId } }">
-      <div class="card-header fs-4"><img :src="postProp.picture" alt="" class="prof-img"> {{ postProp.creator }}</div>
+      <div class="card-header fs-5 align-items-end mb-0">
+        <img :src="postProp.picture" alt="Profile Picture" class="prof-img d-flex justify-content-between">
+        {{ postProp.creator }}
+      </div>
     </RouterLink>
-    <div class="card-body">
+    <div>{{ new Date(postProp.createdAt).toLocaleString() }}</div>
+    <div class="card-body fs-3 mt-0">
       <div>{{ postProp.body }}</div>
       <hr>
-      <!-- <img :src="postProp.imgUrl" alt=""> -->
-      <hr>
-      <div v-for="like in postProp.likes" :key="like.id" class="">
-        <span>{{ like.name }}</span>
+      <div class="text-decoration-underline">
+        Likes:
+        <div v-for="like in postProp.likes" :key="like.id" class="fs-6">
+          <span>{{ like.name }}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -52,7 +57,7 @@ img {
 }
 
 .prof-img {
-  max-width: 96px;
+  max-width: 64px;
   aspect-ratio: 1;
 }
 
