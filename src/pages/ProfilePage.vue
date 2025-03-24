@@ -57,10 +57,8 @@ async function getPostsById() {
             <div class="card-body">
               <p>{{ profile.bio }}</p>
               <p>{{ profile.class }}</p>
-              <a :href="profile.github"><i class="mdi mdi-github"></i></a>
-              <p>
-                <a :href="profile.linkedin"><i class="mdi mdi-linkedin"></i></a>
-              </p>
+              <p><a :href="profile.github" class="mdi mdi-github fs-3 txt-grn">GitHub</a></p>
+              <p><a :href="profile.linkedin" class="mdi mdi-linkedin fs-3 txt-grn">LinkedIn</a></p>
               <p>Graduated? {{ profile.graduated ? '✔️' : '❌' }}</p>
             </div>
           </div>
