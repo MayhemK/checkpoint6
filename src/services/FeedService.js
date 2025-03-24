@@ -5,6 +5,18 @@ import { Post } from "@/models/Post.js";
 import { Account } from "@/models/Account.js";
 
 class FeedService{
+  async getOlder(page) {
+    const res = await api.get(`api/posts?page=${page}`)
+    logger.log('response of Older', res)
+    const posts = res.data.posts.map(pojo => new Post(pojo))
+    AppState.posts = posts
+  }
+  async getNewer(page) {
+    const res = await api.get(`api/posts?page=${page}`)
+    logger.log('response of Newer', res)
+    const posts = res.data.posts.map(pojo => new Post(pojo))
+    AppState.posts = posts
+  }
   async likePost(postId) {
     const res = await api.post(`api/posts/${postId}/like`)
     await this.getAllPosts()

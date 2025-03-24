@@ -1,7 +1,8 @@
 <script setup>
+import { AppState } from '@/AppState.js';
 import { accountService } from '@/services/AccountService.js';
 import { Pop } from '@/utils/Pop.js';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
 
 const editableAccountData = ref({
@@ -14,6 +15,11 @@ const editableAccountData = ref({
   github: '',
   linkedin: '',
   class: ''
+})
+
+onMounted(() => {
+  const account = AppState.account
+  editableAccountData.value = { ...account }
 })
 
 async function updateAccount() {
