@@ -5,6 +5,12 @@ import { Post } from "@/models/Post.js";
 import { Account } from "@/models/Account.js";
 
 class FeedService{
+  async deletePost(postId) {
+    const res = await api.delete(`api/posts/${postId}`)
+    const posts = AppState.posts
+    const postIndex = posts.findIndex(post => post.id == postId)
+    posts.splice(postIndex, 1)
+  }
   async getAllPosts() {
     const res = await api.get('api/posts')
 const posts = res.data.posts.map(pojo => new Post(pojo)) 
