@@ -20,13 +20,14 @@ async function getBanner() {
 
 
 <template>
-  Banner Ad
-  <div>{{ banner }}</div>
+  <div v-for="banner in banner" :key="banner.title">
+    <img :src="banner.tall" alt="">
+  </div>
 </template>
 
 
 <style lang="scss" scoped>
 img {
-  max-height: 10dvh;
+  max-height: 40dvh;
 }
 </style>

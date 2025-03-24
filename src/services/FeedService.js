@@ -18,7 +18,6 @@ class FeedService{
   async getAllPosts() {
     const res = await api.get('api/posts')
 const posts = res.data.posts.map(pojo => new Post(pojo)) 
-const likes = res.data.posts
 AppState.posts = posts
 }
 
