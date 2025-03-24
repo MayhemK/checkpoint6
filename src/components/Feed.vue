@@ -43,6 +43,24 @@ async function likePost(postId) {
   }
 }
 
+// async function changePage(pageNumber) {
+//   try {
+//     logger.log(Changing page to ${pageNumber})
+//     const profileId = route.params.profileId
+//     if (!profileId) {
+//       await postsService.changePageInHome(pageNumber)
+//     }
+//     else {
+//       await postsService.changePageInProfile(profileId, pageNumber)
+//       logger.log(Changing page to ${pageNumber} for profileId:${profileId})
+//     }
+
+//   }
+//   catch (error) {
+//     Pop.error(error, 'Could not change page!');
+//     logger.log('Could not change page!', error)
+//   }
+// }
 </script>
 
 

@@ -33,6 +33,16 @@ const posts = res.data.posts.map(pojo => new Post(pojo))
 AppState.posts = posts
 }
 
+// async changePageInProfile(profileId, pageNumber) {
+//   const response = await api.get(api/profiles/${profileId}/posts?page=${pageNumber})
+//   logger.log(Changing page from ${profileId}and${pageNumber}, response.data)
+//   const posts = response.data.posts.map(pojo => new Post(pojo))
+//   AppState.posts = posts
+//   AppState.currentPage = response.data.page  1
+//   AppState.totalPages = response.data.totalPages  1
+// }
+
+
 }
 
 export const feedService = new FeedService()
